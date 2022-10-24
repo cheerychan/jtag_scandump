@@ -1,0 +1,85 @@
+Invoked as: /home/se/JTAG/openocd-0.9.0/jimtcl/configure --disable-install-jim --disable-option-checking --prefix=/usr/local --enable-legacy-ft2232_libftdi --cache-file=/dev/null --srcdir=.
+Failed: cc -g -O2 -c conftest__.c -o conftest__.o
+conftest__.c:1:25: fatal error: crt_externs.h: No such file or directory
+compilation terminated.
+child process exited abnormally
+============
+The failed code was:
+#include <crt_externs.h>
+int main(void) {
+
+return 0;
+}
+============
+Failed: cc -g -O2 conftest__.c -o conftest__
+/tmp/cckRjM80.o: In function `main':
+/home/se/JTAG/openocd-0.9.0/jimtcl/conftest__.c:3: undefined reference to `sys_signame'
+collect2: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void sys_signame(void);
+int main(void) {
+sys_signame();
+return 0;
+}
+============
+Failed: cc -g -O2 -c conftest__.c -o conftest__.o
+conftest__.c: In function 'main':
+conftest__.c:3:12: error: size of array '_x' is negative
+ static int _x[sizeof(off_t) == 4 ? 1 : -1] = { 1 };
+            ^
+child process exited abnormally
+============
+The failed code was:
+#include <sys/types.h>
+int main(void) {
+static int _x[sizeof(off_t) == 4 ? 1 : -1] = { 1 };
+return 0;
+}
+============
+Failed: cc -g -O2 conftest__.c -o conftest__
+/tmp/ccxfbplI.o: In function `main':
+/home/se/JTAG/openocd-0.9.0/jimtcl/conftest__.c:3: undefined reference to `_NSGetEnviron'
+collect2: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void _NSGetEnviron(void);
+int main(void) {
+_NSGetEnviron();
+return 0;
+}
+============
+Failed: cc -g -O2 -c conftest__.c -o conftest__.o
+conftest__.c: In function 'main':
+conftest__.c:4:1: error: too few arguments to function 'mkdir'
+ mkdir("/dummy");
+ ^
+In file included from conftest__.c:2:0:
+/usr/include/x86_64-linux-gnu/sys/stat.h:320:12: note: declared here
+ extern int mkdir (const char *__path, __mode_t __mode)
+            ^
+child process exited abnormally
+============
+The failed code was:
+#include <sys/types.h>
+#include <sys/stat.h>
+int main(void) {
+mkdir("/dummy");
+return 0;
+}
+============
+Failed: cc -g -O2 conftest__.c -o conftest__
+/tmp/cc9EqTTP.o: In function `main':
+/home/se/JTAG/openocd-0.9.0/jimtcl/conftest__.c:3: undefined reference to `dlopen'
+collect2: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void dlopen(void);
+int main(void) {
+dlopen();
+return 0;
+}
+============
